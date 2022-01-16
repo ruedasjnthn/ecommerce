@@ -1,0 +1,96 @@
+@use "abstract/mixins" as *;
+@use "base/typography" as *;
+@use "base/colors" as c;
+
+.product {
+  &__container {
+    @include container($width: calc(23.4375em - 2em));
+  }
+  &__brand {
+    font-size: 0.95rem;
+    margin: 1.5em auto;
+    color: c.$orange;
+  }
+  &__name {
+    font-size: 1.8rem;
+    margin: 0.75em auto;
+    color: c.$veryDarkBlue;
+  }
+  &__info {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: c.$darkGrayishBlue;
+  }
+  &__pricing {
+    display: flex;
+    align-items: center;
+    margin: 1.5em auto;
+  }
+  &__discountedPrice {
+    font-size: 2rem;
+    font-weight: $fw-bold;
+    margin-right: 0.5em;
+  }
+  &__discount {
+    font-weight: $fw-bold;
+    color: c.$orange;
+    background-color: c.$paleOrange;
+    border-radius: 5px;
+    padding: 0.25em 0.5em;
+  }
+  &__originalPrice {
+    font-weight: $fw-bold;
+    color: c.$grayishBlue;
+    text-decoration: line-through;
+    margin-left: 6.75em;
+  }
+  &__counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: c.$lightGrayishBlue;
+    border-radius: 10px;
+    padding: 0.75em 1em;
+  }
+  &__count {
+    font-weight: $fw-bold;
+  }
+
+  &__countBtn {
+    fill: c.$orange;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+
+  &__plus {
+    padding: 0.25em 0;
+  }
+
+  &__minus {
+    padding: 0.5em 0;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 21.4375em;
+    color: c.$white;
+    background-color: c.$orange;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 1em auto;
+    padding: 0.75em 0;
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+  &__btnIcon {
+    fill: c.$white;
+    margin-right: 1em;
+  }
+}

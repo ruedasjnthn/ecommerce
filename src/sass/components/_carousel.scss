@@ -1,0 +1,64 @@
+@use "abstract/mixins" as *;
+@use "base/colors" as c;
+
+//z-index-10
+
+.carousel {
+    &__container {
+        @include container($width: 23.4375em);
+        margin-top: 2.5em;
+        position: relative;
+    }
+
+    &__image {
+        min-width: 23.4375em;
+        height: 18.75em;
+        display: block;
+        user-select: none;
+    }
+    
+
+    &__slide {
+        opacity: 0;
+        transition: 850ms ease;
+    }
+
+    &__slide.active {
+        opacity: 1;
+        transition: 850ms;
+    }
+
+    &__buttonContainer {
+        position: absolute;
+        z-index: 10;
+        width: 1.875em;
+        height: 1.875em;
+        border-radius: 50%;
+        background-color: c.$white;
+        cursor: pointer;
+    }
+
+    &__btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%) scale(0.75);
+        stroke: c.$veryDarkBlue;
+        padding: 0.5em 0.75em;
+        &:hover {
+            stroke: c.$orange;
+        }
+    }
+
+    &__nextButton {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 1.5em;
+    }
+
+    &__prevButton {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 1.5em;
+    }
+}

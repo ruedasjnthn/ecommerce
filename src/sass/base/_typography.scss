@@ -1,0 +1,16 @@
+@use "colors" as c;
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+/* font-style */
+$font-family: "Kumbh Sans", sans-serif;
+
+/* font-weight */
+$fw-regular: 400;
+$fw-bold: 700;
+
+body {
+  font-family: $font-family;
+  font-size: 16px;
+  font-weight: $fw-regular;
+}
+

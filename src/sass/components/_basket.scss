@@ -1,0 +1,25 @@
+@use "abstract/mixins" as *;
+@use "base/typography" as *;
+@use "base/colors" as c;
+
+//z-index-20
+
+.basket {
+    position: absolute;
+    top: 6.5em;
+    @include container($width: calc(23.4375em));
+    background-color: c.$white;
+    border-radius: 0.625em;
+    z-index:20;
+
+    &__title {
+        color: c.$veryDarkBlue;
+        font-size: 0.875rem;
+        font-weight: $fw-bold;
+        padding: 1em;
+    }
+    
+    &__item {
+        display: flex;
+    }
+}

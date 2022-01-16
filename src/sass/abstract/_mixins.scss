@@ -1,0 +1,17 @@
+/* container */
+@mixin container($width) {
+  max-width: $width;
+  margin: 0 auto;
+}
+
+/* breakpoints */
+$mediumscreen: 601px;
+$largescreen: 1280px;
+$Xlargescreen: 1550px; 
+
+@mixin mq($width:$largescreen) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
