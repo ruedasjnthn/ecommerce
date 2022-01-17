@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <>
-    <Nav cartCount={ cartCount }/>
+    <Nav cartCount={cartCount} setCartCount={setCartCount}/>
     <Carousel />
     <Product setCartCount={setCartCount} cartCount={cartCount} />
     </>

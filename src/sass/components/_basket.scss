@@ -5,21 +5,74 @@
 //z-index-20
 
 .basket {
-    position: absolute;
-    top: 6.5em;
-    @include container($width: calc(23.4375em));
-    background-color: c.$white;
-    border-radius: 0.625em;
-    z-index:20;
+  position: absolute;
+  top: 6.5em;
+  width: calc(23.4375em - 1em);
+  background-color: c.$white;
+  border-radius: 0.625em;
+  z-index: 20;
 
-    &__title {
-        color: c.$veryDarkBlue;
-        font-size: 0.875rem;
-        font-weight: $fw-bold;
-        padding: 1em;
+  &__title {
+    color: c.$veryDarkBlue;
+    font-size: 0.875rem;
+    font-weight: $fw-bold;
+    padding: 2em 1em;
+    margin: 0;
+  }
+
+  &__empty {
+    display: flex;
+    justify-content: center;
+    color: c.$darkGrayishBlue;
+    font-size: 0.875rem;
+    font-weight: $fw-bold;
+    border-top: 2px solid c.$grayishBlue;
+    padding: 5em 1em;
+    margin: 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    color: c.$darkGrayishBlue;
+    font-size: 1rem;
+    border-top: 2px solid c.$grayishBlue;
+    padding: 1.75em 0.875em;
+  }
+
+  &__image {
+    width: 4em;
+    height: 4em;
+    border-radius: 5px;
+  }
+
+  &__info {
+    margin: 0 auto 0 0.875em;
+  }
+
+  &__product {
+    width: 12em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    width: 20.6875em;
+    background-color: c.$orange;
+    color: c.$white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: $fw-bold;
+    cursor: pointer;
+    margin: 0 0.875em 1.75em;
+    padding: 0.75em 0;
+    &:hover {
+      opacity: 0.75;
     }
-    
-    &__item {
-        display: flex;
-    }
+  }
 }

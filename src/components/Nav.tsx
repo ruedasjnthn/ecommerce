@@ -10,9 +10,10 @@ import Basket from "./Basket";
 
 type Props = {
   cartCount: number;
+  setCartCount: Function;
 };
 
-const Nav: React.FC<Props> = ({ cartCount }) => {
+const Nav: React.FC<Props> = ({ cartCount, setCartCount }) => {
   const [sidebar, setSidebar] = useState(false);
 
   const [dropdown, setDropdown] = useState(false);
@@ -80,7 +81,7 @@ const Nav: React.FC<Props> = ({ cartCount }) => {
           </svg>
           {cartCount > 0 && <div className="nav__badge">{cartCount}</div>}
         </div>
-        {dropdown && <Basket cartCount={cartCount} />}
+        {dropdown && <Basket cartCount={cartCount} setCartCount={setCartCount} />}
         <img
           className="nav__userAvatar"
           src={userAvatar.src}
