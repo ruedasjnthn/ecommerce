@@ -58,6 +58,19 @@
     margin: 0;
   }
 
+  &__totalPrice {
+    margin-left: 0.5em;
+    font-weight: $fw-bold;
+    color: c.$veryDarkBlue;
+  }
+
+  &__removeBtn {
+    fill: c.$grayishBlue;
+    &:hover {
+      fill: c.$veryDarkBlue;
+    }
+  }
+
   &__btn {
     display: flex;
     justify-content: center;
