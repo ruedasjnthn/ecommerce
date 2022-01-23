@@ -5,16 +5,15 @@
 
 .carousel {
     &__container {
-        @include container($width: 23.4375em);
+        @include container($width: clamp(23.4375em, 22.5em, 22.5em));
         margin-top: 2.5em;
         position: relative;
     }
 
     &__image {
-        min-width: 23.4375em;
+        width: 100%;
         height: 18.75em;
         display: block;
-        user-select: none;
     }
     
 

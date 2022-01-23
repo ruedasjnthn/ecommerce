@@ -1,8 +1,6 @@
-//module imports
-import { useState } from "react";
-
-//img imports
 import CartItemImage from "../public/image-product-1-thumbnail.jpg";
+import getStripe from "../utils/get-stripejs";
+import axios from "axios";
 
 type Props = {
   cartCount: number;
@@ -10,7 +8,20 @@ type Props = {
 };
 
 const Basket: React.FC<Props> = ({ cartCount, setCartCount }) => {
-  const handleCheckout = () => setCartCount(0);
+  const handleCheckout = async () => {
+    const {
+      data: { id },
+    } = await axios.post("/api/checkout_session", {
+      name: "Autumn Limited Edition Sneakers",
+      image: "https://sneakers-ecom.vercel.app/_next/static/media/image-product-1-thumbnail.1a9cfb29.jpg",
+      quantity: cartCount, 
+      price: 125
+    });
+
+    // Redirect to Checkout.
+    const stripe = await getStripe();
+    await stripe!.redirectToCheckout({ sessionId: id });
+  };
   const handleRemoveItems = () => setCartCount(0);
 
   return (
@@ -36,7 +47,7 @@ const Basket: React.FC<Props> = ({ cartCount, setCartCount }) => {
             </div>
             <svg
               onClick={handleRemoveItems}
-              className='basket__removeBtn'
+              className="basket__removeBtn"
               width="14"
               height="16"
               xmlns="http://www.w3.org/2000/svg"

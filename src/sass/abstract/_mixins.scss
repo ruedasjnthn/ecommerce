@@ -4,10 +4,13 @@
   margin: 0 auto;
 }
 
+@mixin min-container($width) {
+  min-width: clamp($width);
+  margin: 0 auto;
+}
+
 /* breakpoints */
-$mediumscreen: 601px;
-$largescreen: 1280px;
-$Xlargescreen: 1550px; 
+$largescreen: 1280px; 
 
 @mixin mq($width:$largescreen) {
   @media (min-width: $width) {
