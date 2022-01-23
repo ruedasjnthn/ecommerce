@@ -7,9 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 });
 
 async function CreateStripeSession(req: NextApiRequest, res: NextApiResponse) {
-  const redirectURL = process.env.NODE_ENV === 'development'
-      ? 'http://localhost:3000'
-      : 'https://stripe-checkout-next-js-demo.vercel.app';
+  const redirectURL =  'https://sneakers-ecom.vercel.app/';
 
   const item = req.body;
 
