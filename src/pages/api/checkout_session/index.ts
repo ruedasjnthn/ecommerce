@@ -33,7 +33,10 @@ async function CreateStripeSession(req: NextApiRequest, res: NextApiResponse) {
       const checkoutSession: Stripe.Checkout.Session =
         await stripe.checkout.sessions.create(params);
 
-      res.status(200).json(checkoutSession);
+      res
+        .setHeader("Set-Cookie", "Secure;SameSite=None")
+        .status(200)
+        .json(checkoutSession);
     } catch (err: any) {
       res.status(500).json({ statusCode: 500, message: err.message });
     }

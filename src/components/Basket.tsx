@@ -13,9 +13,10 @@ const Basket: React.FC<Props> = ({ cartCount, setCartCount }) => {
       data: { id },
     } = await axios.post("/api/checkout_session", {
       name: "Autumn Limited Edition Sneakers",
-      image: "https://sneakers-ecom.vercel.app/_next/static/media/image-product-1-thumbnail.1a9cfb29.jpg",
-      quantity: cartCount, 
-      price: 125
+      image:
+        "https://sneakers-ecom.vercel.app/_next/static/media/image-product-1-thumbnail.1a9cfb29.jpg",
+      quantity: cartCount,
+      price: 125,
     });
 
     // Redirect to Checkout.
