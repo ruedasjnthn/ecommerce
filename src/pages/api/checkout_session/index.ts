@@ -7,32 +7,28 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 });
 
 async function CreateStripeSession(req: NextApiRequest, res: NextApiResponse) {
-  const redirectURL =  'https://sneakers-ecom.vercel.app/';
-
-  const item = req.body;
-
-  const transformedItems = {
-    price_data: {
-      currency: 'usd',
-      product_data: {
-        images: [item.image],
-        name: item.name,
-      },
-      unit_amount: item.price * 100,
-    },
-    description: 'this is shoes',
-    quantity: item.quantity,
-  }
-
   if (req.method === "POST") {
+    const item = req.body;
+
+    const transformedItems = {
+      price_data: {
+        currency: "usd",
+        product_data: {
+          images: [item.image],
+          name: item.name,
+        },
+        unit_amount: item.price * 100,
+      },
+      quantity: item.quantity,
+    };
     try {
       // Create Checkout Sessions from body params.
       const params: Stripe.Checkout.SessionCreateParams = {
         mode: "payment",
         payment_method_types: ["card"],
         line_items: [transformedItems],
-        success_url: redirectURL,
-        cancel_url: redirectURL,
+        success_url: `${req.headers.origin}`,
+        cancel_url: `${req.headers.origin}`,
       };
       const checkoutSession: Stripe.Checkout.Session =
         await stripe.checkout.sessions.create(params);

@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import Stripe from 'stripe';
 import { buffer } from 'micro';
+import Cors from 'micro-cors';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   // https://github.com/stripe/stripe-node#configuration
@@ -13,7 +14,11 @@ export const config = {
   },
 };
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+const cors = Cors({
+  allowMethods: ['POST', 'HEAD'],
+})
+
+const webhookHandler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     // 1. Retrieve the event by verifying the signature using the raw body and secret
     const rawBody = await buffer(req);
@@ -50,3 +55,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(405).end('Method Not Allowed');
   }
 }
+
+export default cors(webhookHandler as any)
