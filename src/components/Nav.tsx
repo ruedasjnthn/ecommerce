@@ -4,8 +4,6 @@ import { useState } from "react";
 //asset imports
 import logo from "../public/logo.svg";
 import userAvatar from "../public/image-avatar.png";
-
-//component imports
 import Basket from "./Basket";
 
 type Props = {
