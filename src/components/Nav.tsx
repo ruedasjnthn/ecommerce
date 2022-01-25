@@ -1,7 +1,4 @@
-//module imports
 import { useState } from "react";
-
-//asset imports
 import logo from "../public/logo.svg";
 import userAvatar from "../public/image-avatar.png";
 import Basket from "./Basket";
