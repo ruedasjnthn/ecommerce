@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "../public/logo.svg";
 import userAvatar from "../public/image-avatar.png";
 import Basket from "./Basket";
@@ -12,6 +12,25 @@ const Nav: React.FC<Props> = ({ cartCount, setCartCount }) => {
   const [sidebar, setSidebar] = useState(false);
 
   const [dropdown, setDropdown] = useState(false);
+
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // //for screen width
+  // useEffect(() => {
+  //   const handleWindowResize = () => {
+  //     setWindowWidth(window.innerWidth);
+  //   };
+
+  //   window.addEventListener("resize", handleWindowResize);
+
+  //   return () => {
+  //     window.removeEventListener("resize", handleWindowResize);
+  //   };
+  // }, []);
+
+  // useEffect(() => {
+  //   setSidebar(windowWidth >= 1280 ? false : true);
+  // }, [windowWidth]);
 
   const showSidebar = () => setSidebar(true);
 
@@ -34,6 +53,7 @@ const Nav: React.FC<Props> = ({ cartCount, setCartCount }) => {
             fillRule="evenodd"
           />
         </svg>
+        <img className="nav__logo" src={logo.src} alt="sneaker" />
         <div className={sidebar ? "nav__sidebar active" : "nav__sidebar"}>
           <ul className="nav__sidebarItems">
             <li className="nav__close" onClick={closeSidebar}>
@@ -61,7 +81,6 @@ const Nav: React.FC<Props> = ({ cartCount, setCartCount }) => {
             </li>
           </ul>
         </div>
-        <img className="nav__logo" src={logo.src} alt="sneaker" />
         <div className="nav__cart" onClick={handleDropdown}>
           <svg
             className="nav__cartIcon"
@@ -76,7 +95,9 @@ const Nav: React.FC<Props> = ({ cartCount, setCartCount }) => {
           </svg>
           {cartCount > 0 && <div className="nav__badge">{cartCount}</div>}
         </div>
-        {dropdown && <Basket cartCount={cartCount} setCartCount={setCartCount} />}
+        {dropdown && (
+          <Basket cartCount={cartCount} setCartCount={setCartCount} />
+        )}
         <img
           className="nav__userAvatar"
           src={userAvatar.src}

@@ -1,4 +1,5 @@
 //module imports
+import Head from 'next/head';
 import { useState } from 'react';
 
 //component imports
@@ -11,6 +12,9 @@ const Home = () => {
 
   return (
     <>
+    <Head>
+        <title>sneakers</title>
+      </Head>
     <Nav cartCount={cartCount} setCartCount={setCartCount}/>
     <Carousel />
     <Product setCartCount={setCartCount} cartCount={cartCount} />
