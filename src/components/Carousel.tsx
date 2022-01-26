@@ -1,4 +1,3 @@
-//components
 import { useState } from "react";
 import CarouselData from "./CarouselData";
 
