@@ -94,7 +94,9 @@
   }
 
   &__sidebarItems > * + * + * {
-    margin-left: 2em;
+    @include mq($width: $largescreen) {
+      margin-left: 2em;
+    }
   }
 
   &__sidebarItem {
@@ -120,8 +122,11 @@
   }
 
   &__cart {
-    margin-right: 2em;
+    margin-right: 1em;
     position: relative;
+    @include mq($width: $largescreen) {
+      margin-right: 2em;
+    }
   }
 
   &__cartIcon {

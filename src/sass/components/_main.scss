@@ -1,0 +1,10 @@
+@use "abstract" as *;
+
+.main {
+  @include mq($width: $largescreen) {
+    display: grid;
+    justify-content: center;
+    @include container($width: 69.375em - 4em);
+    display: flex;
+  }
+}

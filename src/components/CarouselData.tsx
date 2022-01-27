@@ -18,4 +18,4 @@ const CarouselData = [
   },
 ];
 
-export default CarouselData
+export default CarouselData;

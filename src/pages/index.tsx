@@ -1,25 +1,23 @@
 //module imports
-import Head from 'next/head';
-import { useState } from 'react';
+import Head from "next/head";
+import { useState } from "react";
 
 //component imports
-import Nav from '../components/Nav';
-import Carousel from '../components/Carousel'
-import Product from '../components/Product'
+import Nav from "../components/Nav";
+import Main from "../components/Main";
 
 const Home = () => {
-  const [cartCount, setCartCount] = useState(0)
+  const [cartCount, setCartCount] = useState(0);
 
   return (
     <>
-    <Head>
+      <Head>
         <title>sneakers</title>
       </Head>
-    <Nav cartCount={cartCount} setCartCount={setCartCount}/>
-    <Carousel />
-    <Product setCartCount={setCartCount} cartCount={cartCount} />
+      <Nav cartCount={cartCount} setCartCount={setCartCount} />
+      <Main cartCount={cartCount} setCartCount={setCartCount}/>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

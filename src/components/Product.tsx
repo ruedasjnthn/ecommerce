@@ -1,20 +1,20 @@
 //module imports
-import {  useState } from "react";
+import { useState } from "react";
 
 type Props = {
-  cartCount:number
-  setCartCount:Function
-}
+  cartCount: number;
+  setCartCount: Function;
+};
 
-const Product:React.FC<Props> = ({ setCartCount, cartCount }) => {
+const Product: React.FC<Props> = ({ setCartCount, cartCount }) => {
   const [count, setCount] = useState(0);
-  const maxCount = 50
+  const maxCount = 50;
   const increaseCount = () => setCount(count === maxCount ? 0 : count + 1);
   const decreaseCount = () => setCount(count === 0 ? maxCount : count - 1);
   const addCart = () => {
-    setCartCount(cartCount + count)
-    setCount(0)
-  }
+    setCartCount(cartCount + count);
+    setCount(0);
+  };
   return (
     <section className="product">
       <div className="product__container">
@@ -22,8 +22,8 @@ const Product:React.FC<Props> = ({ setCartCount, cartCount }) => {
         <h1 className="product__name">Fall Limited Edition Sneakers</h1>
         <p className="product__info">
           These low-profile sneakers are your perfect casual wear companion.
-          Featuring a durable rubber outer sole, they&#39;ll withstand everything
-          the weather can offer.
+          Featuring a durable rubber outer sole, they&#39;ll withstand
+          everything the weather can offer.
         </p>
         <div className="product__pricing">
           <span className="product__discountedPrice">$125.00</span>
@@ -74,6 +74,6 @@ const Product:React.FC<Props> = ({ setCartCount, cartCount }) => {
       </div>
     </section>
   );
-}
+};
 
 export default Product;

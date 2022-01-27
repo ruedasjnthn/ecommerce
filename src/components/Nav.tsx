@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import logo from "../public/logo.svg";
 import userAvatar from "../public/image-avatar.png";
 import Basket from "./Basket";
