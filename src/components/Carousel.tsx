@@ -76,24 +76,26 @@ function Carousel() {
         <div className="carousel__thumbnailContainer">
           {ThumbnailData.map((thumbnail, index) => {
             return (
-              <div className={
-                index === current
-                  ? "carousel__thumbnailBorder active"
-                  : "carousel__thumbnailBorder"
-              }>
-                <img
-                src={thumbnail.image.src}
-                alt="product thumbnail"
+              <div
                 className={
                   index === current
-                    ? "carousel__thumbnail active"
-                    : "carousel__thumbnail"
+                    ? "carousel__thumbnailBorder active"
+                    : "carousel__thumbnailBorder"
                 }
-                onClick={() => setCurrent(index)}
                 key={index}
-              />
+              >
+                <img
+                  src={thumbnail.image.src}
+                  alt="product thumbnail"
+                  className={
+                    index === current
+                      ? "carousel__thumbnail active"
+                      : "carousel__thumbnail"
+                  }
+                  onClick={() => setCurrent(index)}
+                />
               </div>
-            )
+            );
           })}
         </div>
       </div>
