@@ -12,7 +12,7 @@ const Basket: React.FC<Props> = ({ cartCount, setCartCount }) => {
     const {
       data: { id },
     } = await axios.post("/api/checkout_session", {
-      name: "Autumn Limited Edition Sneakers",
+      name: "Fall Limited Edition Sneakers",
       image:
         "https://sneakers-ecom.vercel.app/_next/static/media/image-product-1-thumbnail.1a9cfb29.jpg",
       quantity: cartCount,
@@ -40,7 +40,7 @@ const Basket: React.FC<Props> = ({ cartCount, setCartCount }) => {
               alt="product-image"
             />
             <div className="basket__info">
-              <p className="basket__product">Autumn Limited Edition Sneakers</p>
+              <p className="basket__product">Fall Limited Edition Sneakers</p>
               <span className="basket__price">$125.00 x {cartCount}</span>
               <span className="basket__totalPrice">
                 ${(cartCount * 125.0).toFixed(2)}

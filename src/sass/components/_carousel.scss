@@ -6,14 +6,20 @@
 .carousel {
   &__container {
     @include container($width: clamp(23.4375em, 22.5em, 22.5em));
-    margin-top: 2.5em;
     position: relative;
+    @include mq($width: $largescreen) {
+      @include container($width: 28.6875em);
+    }
   }
 
   &__image {
     width: 100%;
     height: 18.75em;
     display: block;
+    @include mq($width: $largescreen) {
+      border-radius: 0.625em;
+      height: 28.6875em;
+    }
   }
 
   &__slide {
@@ -26,6 +32,37 @@
     transition: 850ms;
   }
 
+  &__thumbnailContainer {
+    display: none;
+    @include mq($width: $largescreen) {
+      display: flex;
+      margin-top: 2em;
+    }
+  }
+
+  &__thumbnailContainer > * + * {
+    margin-left: 2em;
+  }
+
+  &__thumbnail {
+    display: block;
+    width: 5.671875em;
+    height: 5.671875em;
+    border-radius: 0.625em;
+    &:hover {
+      opacity: 0.25;
+    }
+  }
+
+  &__thumbnail.active {
+    opacity: 0.25;
+  }
+
+  &__thumbnailBorder.active {
+    border-radius: 0.625em;
+    outline: 0.125em solid c.$orange;
+  }
+
   &__buttonContainer {
     position: absolute;
     z-index: 10;
@@ -34,6 +71,9 @@
     border-radius: 50%;
     background-color: c.$white;
     cursor: pointer;
+    @include mq($width: $largescreen) {
+      display: none;
+    }
   }
 
   &__btn {

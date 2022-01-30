@@ -27,7 +27,7 @@
     }
   }
 
-  &__menu {
+  &__menuBar {
     fill: c.$darkGrayishBlue;
     cursor: pointer;
     margin-right: 1em;
@@ -52,26 +52,28 @@
     }
   }
 
-  &__sidebar {
+  &__menu {
     background-color: c.$lightBlack;
     position: absolute;
     top: 0;
-    left: -100%;
+    left: -150%;
+    width: 23.4375em;
+    height: 55em;
     z-index: 30;
     transition: 0.35s ease-in-out;
     opacity: 0;
     @include mq($width: $largescreen) {
       background-color: c.$white;
       position: static;
+      width: 100%;
+      height: 100%;
       margin-right: 25.5em;
       opacity: 1;
       padding: 0;
     }
   }
 
-  &__sidebar.active {
-    min-width: 23.4375em;
-    min-height: 55em;
+  &__menu.active {
     left: -1em;
     transition: 0.35s;
     opacity: 1;
@@ -112,11 +114,11 @@
       color: c.$darkGrayishBlue;
       font-size: 1rem;
       font-weight: $fw-regular;
-      padding: 2.375em 0;
+      padding: 2.5em 0;
       margin-bottom: 0;
       &:hover {
         color: c.$darkGrayishBlue;
-        box-shadow: 0 0.125em 0 c.$orange;
+        box-shadow: 0 0.25em 0 c.$orange;
       }
     }
   }
@@ -142,7 +144,7 @@
     position: absolute;
     top: -0.5em;
     left: 1.325em;
-    padding: 0.1em 0.625em;
+    padding: 0.125em 0.625em;
     background-color: c.$orange;
     color: c.$white;
     border-radius: 1.25em;

@@ -11,12 +11,21 @@
   background-color: c.$white;
   border-radius: 0.625em;
   z-index: 20;
+  @include mq($width: $largescreen) {
+    width: 23.4375em;
+    top: 5em;
+    right: -4.75em;
+    box-shadow: 0 15px 40px -15px c.$lightBlack;
+  }
+  @include mq($width: 90em) {
+    right: -6em;
+  }
 
   &__title {
     color: c.$veryDarkBlue;
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: $fw-bold;
-    padding: 2em 1em;
+    padding: 1.5em;
     margin: 0;
   }
 
@@ -24,11 +33,14 @@
     display: flex;
     justify-content: center;
     color: c.$darkGrayishBlue;
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-weight: $fw-bold;
     border-top: 2px solid c.$grayishBlue;
-    padding: 5em 1em;
+    padding: 5em 0;
     margin: 0;
+    @include mq($width: $largescreen) {
+      padding: 4.5em 0;
+    }
   }
 
   &__item {
@@ -37,25 +49,25 @@
     color: c.$darkGrayishBlue;
     font-size: 1rem;
     border-top: 2px solid c.$grayishBlue;
-    padding: 1.75em 0.875em;
+    padding: 1.5em;
   }
 
   &__image {
-    width: 4em;
-    height: 4em;
+    width: 3em;
+    height: 3em;
     border-radius: 5px;
   }
 
   &__info {
-    margin: 0 auto 0 0.875em;
+    margin: 0 1em 0.25em;
   }
 
   &__product {
-    width: 12em;
+    width: 14.5em;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    margin: 0;
+    margin: 0 0 0.5em;
   }
 
   &__totalPrice {
@@ -74,7 +86,7 @@
   &__btn {
     display: flex;
     justify-content: center;
-    width: 20.6875em;
+    width: 19.5em;
     background-color: c.$orange;
     color: c.$white;
     border: none;
@@ -82,10 +94,13 @@
     font-size: 1rem;
     font-weight: $fw-bold;
     cursor: pointer;
-    margin: 0 0.875em 1.75em;
-    padding: 0.75em 0;
+    margin: 0 1.5em 2em;
+    padding: 1.25em 0;
     &:hover {
       opacity: 0.75;
+    }
+    @include mq($width: $largescreen) {
+      width: 20.5em;
     }
   }
 }

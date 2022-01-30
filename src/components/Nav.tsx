@@ -42,7 +42,7 @@ const Nav: React.FC<Props> = ({ cartCount, setCartCount }) => {
     <nav className="nav">
       <div className="nav__container">
         <svg
-          className="nav__menu"
+          className="nav__menuBar"
           onClick={showSidebar}
           width="16"
           height="15"
@@ -54,7 +54,7 @@ const Nav: React.FC<Props> = ({ cartCount, setCartCount }) => {
           />
         </svg>
         <img className="nav__logo" src={logo.src} alt="sneaker" />
-        <div className={sidebar ? "nav__sidebar active" : "nav__sidebar"}>
+        <div className={sidebar ? "nav__menu active" : "nav__menu"}>
           <ul className="nav__sidebarItems">
             <li className="nav__close" onClick={closeSidebar}>
               <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">

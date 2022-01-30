@@ -1,9 +1,11 @@
+import { connect } from "net";
 import { useState } from "react";
-import CarouselData from "./CarouselData";
+import { ImgData } from "./CarouselData";
+import { ThumbnailData } from "./CarouselData";
 
 function Carousel() {
   const [current, setCurrent] = useState(0);
-  const slides = CarouselData;
+  const slides = ImgData;
   const length = slides.length;
 
   const nextSlides = () => {
@@ -53,7 +55,7 @@ function Carousel() {
             />
           </svg>
         </div>
-        {CarouselData.map((carousel, index) => {
+        {ImgData.map((img, index) => {
           return (
             <div
               className={
@@ -63,7 +65,7 @@ function Carousel() {
             >
               {index === current && (
                 <img
-                  src={carousel.image.src}
+                  src={img.image.src}
                   alt="product image"
                   className="carousel__image"
                 />
@@ -71,6 +73,29 @@ function Carousel() {
             </div>
           );
         })}
+        <div className="carousel__thumbnailContainer">
+          {ThumbnailData.map((thumbnail, index) => {
+            return (
+              <div className={
+                index === current
+                  ? "carousel__thumbnailBorder active"
+                  : "carousel__thumbnailBorder"
+              }>
+                <img
+                src={thumbnail.image.src}
+                alt="product thumbnail"
+                className={
+                  index === current
+                    ? "carousel__thumbnail active"
+                    : "carousel__thumbnail"
+                }
+                onClick={() => setCurrent(index)}
+                key={index}
+              />
+              </div>
+            )
+          })}
+        </div>
       </div>
     </section>
   );
